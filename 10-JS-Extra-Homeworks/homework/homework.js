@@ -1,5 +1,7 @@
 // No cambies los nombres de las funciones.
 
+const { parseEngineOverrides } = require("@11ty/eleventy/src/TemplateRender");
+
 function deObjetoAmatriz(objeto){
   // Escribe una función que convierta un objeto en una matriz, donde cada elemento representa 
   // un par clave-valor en forma de matriz.
@@ -10,6 +12,9 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+var arr = [];
+    arr = Object.entries(objeto);
+    return arr
 }
 
 
@@ -18,6 +23,15 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  var obj1 ={}
+  for (let i = 0 ; i < string.length ; i++){
+    if(obj1.hasOwnProperty(string[i])){
+      obj1[string[i]]++
+    } else {
+      obj1[string[i]] = 1
+    }
+  }
+  return obj1
 }
 
 
@@ -26,7 +40,16 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
-}
+  var mayus=""
+  var minus=""
+ for(let i = 0 ; i < s.length ; i++){
+    if(s[i] === s[i].toLowerCase()){
+      minus += s[i]
+    } else 
+      mayus += s[i]
+  } 
+    return mayus+minus
+} 
 
 
 function asAmirror(str) {
@@ -35,6 +58,12 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  var frase = str.split(" ");
+  var arr = []
+  for (let i = 0 ; i < frase.length ; i++){
+    arr.push(frase[i].split("").reverse().join(""))
+  }
+    return arr.join(" ")
 } 
 
 
@@ -43,20 +72,41 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  
+  var capi = numero.toString().split("")
+    if(capi.reverse().join("") == numero){
+      return "Es capicua"
+    } else
+      return "No es capicua"
 }
+
 
 
 function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
-}
+  var cad = [];
+  var cadN = [];
+    for (let i=0 ; i < cadena.length ; i++){
+      if(cadena[i] == "a" || cadena[i] == "b" || cadena[i] == "c"){;
+           cadN.push(cadena[i]);
+      } else
+           (cad.push(cadena[i])) 
+    }
+    return cad.join("");
+  }
+
+
 
 
 function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  return arr.sort(function(a,b){
+    return a.length - b.length
+  })
 }
 
 
@@ -67,7 +117,6 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
 }
-
 
 
 // No modificar nada debajo de esta línea

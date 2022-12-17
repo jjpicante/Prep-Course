@@ -27,11 +27,16 @@ function incrementarPorUno(array) {
   // y devuelve el array
   // Tu código:
  
-  for (let i=0; i < array.length; i++){
+/*   for (let i=0; i < array.length; i++){
 
   array[i] = array [i] + 1;
   }
-  return array;
+  return array; */
+  var narr = []
+  for(let i = 0 ; i < array.length ; i++){
+    narr.push(array[i]+1)
+  }
+  return narr
 }
 
 
@@ -68,13 +73,15 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  for(var i = 0; i < array.length ; i++){
+    for(var i = 0; i < array.length ; i++){
     if(elemento === array[i]){
       return true;
     }
    }
-return false;
-  }
+return false; 
+//return (array.hasOwnProperty(elemento)) ? true : false
+}
+ 
 
 
 function agregarNumeros(numeros) {
@@ -83,7 +90,7 @@ function agregarNumeros(numeros) {
   // Tu código:
   var resultado = 0
   for(var i = 0; i < numeros.length ; i++){
-    resultado = resultado + numeros[i]}
+    resultado += numeros[i]}
     return resultado;
   }
   
@@ -94,7 +101,7 @@ function promedioResultadosTest(resultadosTest) {
   // Tu código:
   var resultado = 0
   for(var i = 0; i < resultadosTest.length ; i++){
-    resultado = resultado + resultadosTest[i]}
+    resultado += resultadosTest[i]}
     return resultado / resultadosTest.length ;
 }
 
@@ -140,7 +147,7 @@ function cuentoElementos(arreglo){
 var acumulador = 0;
   for(var i = 0 ; i < arreglo.length ; i++){
 if(arreglo[i] > 18){
-  acumulador = acumulador + 1;
+  acumulador += 1;
 }
 }
 return acumulador;
@@ -152,26 +159,19 @@ function diaDeLaSemana(numeroDeDia) {
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
-  if(numeroDeDia === 1 || numeroDeDia === 7){
-    return "Es fin de semana";
-  }
-    else if (numeroDeDia > 1 && numeroDeDia < 7)
-    {
-    return "Es dia Laboral";
-  }
+  return (numeroDeDia === 1 || numeroDeDia === 7) ? "Es fin de semana" : "Es dia Laboral";
   } 
-
-
 
 function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  var string= n + ""
+  /* var string = n + ""
   if(string[0] == 9){
     return true
   }
-  else return false
+  else return false */
+  return (n.toString()[0] == 9) ? true : false
 }
 
 
@@ -193,7 +193,7 @@ function mesesDelAño(array) {
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
   var nuevoarray = [];
-  for(i = 0 ; i < array.length ; i++){
+   for(i = 0 ; i < array.length ; i++){
   if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre"){
     nuevoarray.push(array[i]);
   }
@@ -204,7 +204,8 @@ function mesesDelAño(array) {
      else{
       return nuevoarray
      }
-}
+} 
+
 function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.

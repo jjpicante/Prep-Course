@@ -91,23 +91,25 @@ function menosQueNoventa(num) {
   // Devuelve "true" si el argumento de la función "num" es menor que noventa
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (num < 90){
-    return true;
-  }
-  else { 
-    return false;
-  }
+  //if (num < 90){
+  //  return true;
+  //}
+  //else { 
+  //return false;
+  //}
+return (num < 90) ? true : false;
 }
 
 function mayorQueCincuenta(num) {
   // Devuelve "true" si el argumento de la función "num" es mayor que cincuenta
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (num > 50){
+  /* if (num > 50){
     return true;}
     else {
       return false;
-    }
+    } */
+  return (num > 50) ? true : false;
   }
 
 
@@ -121,11 +123,12 @@ function esPar(num) {
   // Devuelve "true" si "num" es par
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (num % 2 === 0){
+ /*  if (num % 2 === 0){
     return true;
   }else {
     return false;
-  }
+  } */
+  return (num % 2 === 0) ? true : false;
 }
 
 function esImpar(num) {
@@ -182,15 +185,19 @@ function esPositivo(numero) {
   //Si el número es positivo, devolver ---> "Es positivo"
   //Si el número es negativo, devolver ---> "Es negativo"
   //Si el número es 0, devuelve false
-  if (numero === 0){
+ /*  if (numero === 0){
     return false;
   }
     else if(numero > 0){
       return "Es positivo";
     }
       else (numero < 0)
-        return "Es negativo";
-    }
+        return "Es negativo"; */
+    return (numero === 0) ? false
+          :(numero > 0) ? "Es positivo"
+          : "Es negativo"
+    
+      }
 
 function agregarSimboloExclamacion(str) {
   // Agrega un símbolo de exclamación al final de la string "str" y devuelve una nueva string
